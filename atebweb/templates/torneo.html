@@ -44,7 +44,7 @@
                 Donec cursus leo non tempor sodales. Donec sed suscipit nisi. Morbi sit amet leo placerat, venenatis odio eu, fringilla purus. Nullam lobortis ex nec sodales varius. In vel ipsum a sapien venenatis posuere sit amet eu diam. Nunc ac purus vestibulum est eleifend dictum id at purus. Fusce dignissim, magna ut ultricies ornare, purus ex interdum mauris, quis aliquet ex lorem nec dui. Nulla egestas rhoncus neque at lobortis. Quisque ut lectus libero. Nunc congue interdum lorem.
         </p>
         <br>
-        <p><a href="#">Descargar reglamentación </a></p>
+        
         <br>
     </div>
 </div>
@@ -80,11 +80,14 @@
                 {% for s in fecha %}
                 <h5 class="text-center">{{s.nombre_fecha}}</h5>
                 {% endfor%}
-                <br>
+                
                 {% for p in partidos %}
-
+                        <hr>
                         <h6 class="text-center">{{p.fecha_partido}} hs.</h6>
                         <div class="row">
+                            <div class="col-md-12">
+                                <p class="text-center">Categoria: {{p.categoria__nombre_categoria}}</p>
+                              </div>
                                 <div class="col-md-4">
                                     <img style="border-radius: 50%;" class="img-fluid" src="/media/{{p.equipo1__logo_equipo}}" alt="">
                                     <p class="text-center">{{p.equipo1__abreviacion}}</p>
@@ -97,7 +100,7 @@
                                         <p class="text-center">{{p.equipo2__abreviacion}}</p>
                                 </div>
                         </div>
-                        <br>
+                        
                 
                 {% endfor %}
           </div>

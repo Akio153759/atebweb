@@ -9,4 +9,5 @@ urlpatterns = [
     path('galeria', views.galeria, name='galeria'),
     path('torneo', views.torneo, name='torneo'),
     path('categorias/<str:nombre_categoria>', views.noticias_x_categoria, name='noticias_x_categoria'),
+    path('enviar_datos_mail', views.enviar_datos_mail, name='enviar_datos_mail'),
 ]

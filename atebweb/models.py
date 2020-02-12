@@ -75,6 +75,7 @@ class Partido(models.Model):
     fecha_partido = models.DateTimeField('Fecha de Partido',blank=False, null=False)
     equipo1 = models.ForeignKey(Equipo, blank=False, null=False, on_delete=models.PROTECT)
     equipo2 = models.ForeignKey(Equipo, blank=False, related_name='equipo_2', null=False, on_delete=models.PROTECT)
+    categoria = models.ForeignKey(Categoria, blank=False, null= False, on_delete=models.PROTECT)
 
     def __str__(self):
         return '{} vs {}'.format(self.equipo1, self.equipo2)

@@ -83,7 +83,7 @@
                     </div>
                     <div id="success"></div>
                     <!-- For success/fail messages -->
-                    <button onclick="" type="submit" class="btn btn-primary" id="sendMessageButton">Enviar Mensaje</button>
+                    <button onclick="EnviarFormulario();" type="submit" class="btn btn-primary" id="sendMessageButton">Enviar Mensaje</button>
                 </form>
                 </div>
         
@@ -103,11 +103,14 @@
                       {% for s in fecha %}
                       <h5 class="text-center">{{s.nombre_fecha}}</h5>
                       {% endfor%}
-                      <br>
+                      
                       {% for p in partidos %}
-      
+                              <hr>
                               <h6 class="text-center">{{p.fecha_partido}} hs.</h6>
                               <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-center">Categoria: {{p.categoria__nombre_categoria}}</p>
+                                    </div>
                                       <div class="col-md-4">
                                           <img style="border-radius: 50%;" class="img-fluid" src="/media/{{p.equipo1__logo_equipo}}" alt="">
                                           <p class="text-center">{{p.equipo1__abreviacion}}</p>
@@ -120,7 +123,7 @@
                                               <p class="text-center">{{p.equipo2__abreviacion}}</p>
                                       </div>
                               </div>
-                              <br>
+                              
                       
                       {% endfor %}
                 </div>
@@ -155,5 +158,37 @@
     <p class="m-0 text-center text-white">Copyright &copy; Ateb 2019</p>
     </div>
 </footer>
+<script>
 
+function EnviarFormulario(){
+    var nombre = document.getElementById("name").value;
+    var telefono = document.getElementById("phone").value;
+    var email = document.getElementById("email").value;
+    var mensaje = document.getElementById("message").value;
+
+    $.ajax({
+        type: 'post',
+        url: "{% url 'enviar_datos_mail' %}",
+        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+        context: document.body,
+        data: {
+            'nombre': nombre,
+            'telefono': telefono,
+            'email': email,
+            'mensaje': mensaje, 
+        },
+        dataType: "json",
+        statusCode: {
+            200: function(){
+                alert("200 del ajax");
+            }
+        },
+        success: function(response) {
+            alert("funciono");
+        }
+    }); 
+    
+}
+
+</script>
 {% endblock %}
