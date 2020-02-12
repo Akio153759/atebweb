@@ -1,0 +1,56 @@
+{% extends 'menu2.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-12 mt-5 d-flex">
+<div class="col-md-9 text-sm-center">
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">Equipos
+        
+        </h1>
+    
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            <a href="index.html">Equipos</a>
+            </li>
+            <li class="breadcrumb-item active">Clubes Participantes</li>
+        </ol>
+        <br>
+    
+        <!-- /.row -->
+    
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+        
+        <div class="row">
+            {% for e in equipos %}
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <img class="card-img-top rounded-circle" style="height: 15rem; width: 15rem;" src="../../media/{{e.logo_equipo}}" alt="">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">{{e.abreviacion}}</a>
+                    <p>{{ e.nombre }}</p>
+                  </h4>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+          
+        <!-- /.row -->
+    
+        </div>
+</div>
+<div class="col-md-3 pl-0 pr-0">
+        {% include 'lateral.html' %}
+</div>
+</div>
+<footer class="py-5 bg-dark">
+    <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Ateb 2019</p>
+    </div>
+</footer>
+
+{% endblock %}

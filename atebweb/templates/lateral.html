@@ -1,0 +1,23 @@
+{% for s in fecha %}
+<h5 class="text-center">{{s.nombre_fecha}}</h5>
+{% endfor%}
+<br>
+{% for p in partidos %}
+<div id="partido">
+        <h6 class="text-center">{{p.fecha_partido}} hs.</h6>
+        <div class="form-in-line d-flex justify-content-between">
+                <div class="col-md-4 d-flex align-items-center">
+                        <img style="border-radius: 50%;" class="img-fluid" src="/media/{{p.equipo1__logo_equipo}}" alt="">
+                        <label>{{p.equipo1__abreviacion}}</label>
+                </div>
+                <div class="col-md-4 text-right align-self-center">
+                        <label>vs</label>
+                </div>                          
+                <div class="col-md-4 d-flex align-items-center">
+                        <label>{{p.equipo2__abreviacion}}</label>
+                        <img style="border-radius: 50%;" class="img-fluid" src="/media/{{p.equipo2__logo_equipo}}" alt="">
+                </div>
+        </div>
+        <br>
+</div>
+{% endfor %}

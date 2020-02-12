@@ -1,0 +1,133 @@
+{% extends 'menu2.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<div class="container">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3"><b>Torneo</b>
+    
+  </h1>
+
+  <ol class="breadcrumb" style="box-shadow: 0px 2px 10px rgba(0, 0, 0, .25);">
+    <li class="breadcrumb-item">
+      <a href="index.html">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Blog Home 1</li>
+  </ol>
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+      <!-- Blog Post -->
+    
+    <div id="reglamentacion" class="form-control text-center" style="box-shadow: 0px 2px 15px rgba(0, 0, 0, .25);">
+        <div class="col-md-12">
+        <br>
+        <h2 >Reglamentación</h2>
+        <br>
+        <p>Duis in mauris et nisl eleifend tincidunt. Fusce laoreet nibh justo, ullamcorper rutrum nunc egestas eget. Cras malesuada laoreet interdum. Nam gravida consectetur sagittis. Sed convallis posuere massa, eget aliquet nibh cursus sit amet. Quisque consectetur neque sit amet urna aliquam, nec placerat lectus facilisis. Pellentesque tristique, enim a euismod vestibulum, arcu nisl euismod nunc, ac faucibus ex odio sit amet lorem. Donec id porttitor purus, a egestas lectus. Mauris vitae lorem eu ante vehicula porta. Vivamus hendrerit tincidunt nunc, a vehicula sapien ultrices sit amet. Proin euismod neque vitae tortor lobortis, eu venenatis sem gravida.
+
+                Phasellus accumsan, urna eget finibus egestas.
+        </p>
+        <p>
+                metus augue fringilla diam, eget dictum sem eros et orci. Aenean consequat ex vel ex tempor, eu ornare purus congue. Nunc condimentum mauris arcu, sed tincidunt lectus laoreet id. Donec quis augue elementum, tincidunt velit vitae, tincidunt dui. Fusce ac nulla vel nulla congue dignissim. Nullam non mauris et nulla laoreet scelerisque ut id metus. Phasellus aliquam posuere vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In suscipit auctor nibh, in mollis urna aliquam eget. Praesent laoreet pellentesque finibus. Praesent velit sem, commodo sed posuere non, pretium in mi. Praesent consequat eros non ex tristique tristique. Nunc euismod, tellus pharetra mollis condimentum, nunc metus consequat diam, non ultrices lectus erat id neque. Maecenas aliquam, elit vel tincidunt ultricies, nisi nisl aliquet tellus, vel fringilla purus diam eget nisi.
+                
+                Donec cursus leo non tempor sodales. Donec sed suscipit nisi. Morbi sit amet leo placerat, venenatis odio eu, fringilla purus. Nullam lobortis ex nec sodales varius. In vel ipsum a sapien venenatis posuere sit amet eu diam. Nunc ac purus vestibulum est eleifend dictum id at purus. Fusce dignissim, magna ut ultricies ornare, purus ex interdum mauris, quis aliquet ex lorem nec dui. Nulla egestas rhoncus neque at lobortis. 
+        </p>
+        <p>
+                Quisque ut lectus libero. Nunc congue interdum lorem.metus augue fringilla diam, eget dictum sem eros et orci. Aenean consequat ex vel ex tempor, eu ornare purus congue. Nunc condimentum mauris arcu, sed tincidunt lectus laoreet id. Donec quis augue elementum, tincidunt velit vitae, tincidunt dui. Fusce ac nulla vel nulla congue dignissim. Nullam non mauris et nulla laoreet scelerisque ut id metus. Phasellus aliquam posuere vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In suscipit auctor nibh, in mollis urna aliquam eget. Praesent laoreet pellentesque finibus. Praesent velit sem, commodo sed posuere non, pretium in mi. Praesent consequat eros non ex tristique tristique. Nunc euismod, tellus pharetra mollis condimentum, nunc metus consequat diam, non ultrices lectus erat id neque. Maecenas aliquam, elit vel tincidunt ultricies, nisi nisl aliquet tellus, vel fringilla purus diam eget nisi.
+                
+                Donec cursus leo non tempor sodales. Donec sed suscipit nisi. Morbi sit amet leo placerat, venenatis odio eu, fringilla purus. Nullam lobortis ex nec sodales varius. In vel ipsum a sapien venenatis posuere sit amet eu diam. Nunc ac purus vestibulum est eleifend dictum id at purus. Fusce dignissim, magna ut ultricies ornare, purus ex interdum mauris, quis aliquet ex lorem nec dui. Nulla egestas rhoncus neque at lobortis. Quisque ut lectus libero. Nunc congue interdum lorem.
+        </p>
+        <br>
+        <p><a href="#">Descargar reglamentación </a></p>
+        <br>
+    </div>
+</div>
+    <br>
+    <div class="text-center">
+        <h2>Categorías</h2>
+        <br>
+        <ul class="list-group list-group-flush">
+            {% for c in categorias %}
+                <li class="list-group-item" style="box-shadow: 0px 2px 15px rgba(0, 0, 0, .25);">
+                    <h4><a href="{% url 'noticias_x_categoria' nombre_categoria=c.nombre_categoria %}">{{c.nombre_categoria}}</a></h4>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    
+
+
+
+      
+
+
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+      <!-- Partidos Widget -->
+      <div class="card mb-4" style="box-shadow: 0px 2px 15px rgba(0, 0, 0, .25);">
+          <h5 class="card-header">Próximos partidos</h5>
+          <div class="card-body">
+                {% for s in fecha %}
+                <h5 class="text-center">{{s.nombre_fecha}}</h5>
+                {% endfor%}
+                <br>
+                {% for p in partidos %}
+
+                        <h6 class="text-center">{{p.fecha_partido}} hs.</h6>
+                        <div class="row">
+                                <div class="col-md-4">
+                                    <img style="border-radius: 50%;" class="img-fluid" src="/media/{{p.equipo1__logo_equipo}}" alt="">
+                                    <p class="text-center">{{p.equipo1__abreviacion}}</p>
+                                </div>
+                                <div class="col-md-4">
+                                        <p style="margin-top: 50%;" class="text-center form-control"><b>vs</b></p>
+                                </div>                          
+                                <div class="col-md-4">
+                                        <img style="border-radius: 50%;" class="img-fluid" src="/media/{{p.equipo2__logo_equipo}}" alt="">
+                                        <p class="text-center">{{p.equipo2__abreviacion}}</p>
+                                </div>
+                        </div>
+                        <br>
+                
+                {% endfor %}
+          </div>
+        </div>
+
+      <!-- Facebook Widget -->
+      <div class="card my-4" style="box-shadow: 0px 2px 15px rgba(0, 0, 0, .25);">
+        <h5 class="card-header">Seguinos en Facebook</h5>
+        <div class="card-body">
+              <div class="fb-page d-block" style="box-shadow: 0px 2px 15px rgba(0, 0, 0, .25);"
+              data-href="https://www.facebook.com/ATEBCORDOBA" 
+              data-width="340"
+              data-hide-cover="false"
+              data-show-facepile="true">
+              </div>           
+        </div>
+      </div>
+
+      
+
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<footer class="py-5 bg-primary">
+    <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Ateb 2019</p>
+    </div>
+</footer>
+
+{% endblock %}

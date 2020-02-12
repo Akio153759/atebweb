@@ -1,0 +1,96 @@
+{% extends 'menu2.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-12 mt-5 d-flex">
+<div class="col-md-9 text-sm-center">
+        <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">Contacto
+        
+        </h1>
+    
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            <a href="index.html">Contacto</a>
+            </li>
+            <li class="breadcrumb-item active">Formulario de contacto</li>
+        </ol>
+    
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Map Column -->
+            <div class="col-lg-8 mb-4">
+            <!-- Embedded Google Map -->
+            <div style="width: 100%"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=es&coord=-31.4215509, -64.2104819&q=Cordoba+(Ateb%20C%C3%B3rdoba)&ie=UTF8&t=&z=10&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/calcular-ruta.html">Calcular Ruta</a></iframe></div><br />
+            </div>
+            <!-- Contact Details Column -->
+            <div class="col-lg-4 mb-4">
+            <h3>Información de Contacto</h3>
+            <p>
+                <abbr title="Teléfono de contacto"><i class="fa fa-whatsapp" aria-hidden="true" color='#29CD00'></i></abbr> (351) 456-7890
+            </p>
+            <p>
+                <abbr title="Email"><i class="fa fa-envelope" aria-hidden="true" color='#BF0000'></i></abbr>
+                <a href="mailto:name@example.com">ateb@gmail.com
+                </a>
+            </p>
+            </div>
+        </div>
+        <!-- /.row -->
+    
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+        <div class="row">
+            <div class="col-lg-8 mb-4">
+            <h3>Envíe su consulta</h3>
+            <form name="sentMessage" id="contactForm" novalidate>
+                <div class="control-group form-group">
+                <div class="controls">
+                    <label>Nombre:</label>
+                    <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                    <p class="help-block"></p>
+                </div>
+                </div>
+                <div class="control-group form-group">
+                <div class="controls">
+                    <label>Teléfono:</label>
+                    <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                </div>
+                </div>
+                <div class="control-group form-group">
+                <div class="controls">
+                    <label>Correo Electrónico:</label>
+                    <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                </div>
+                </div>
+                <div class="control-group form-group">
+                <div class="controls">
+                    <label>Mensaje:</label>
+                    <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                </div>
+                </div>
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <button type="submit" class="btn btn-primary" id="sendMessageButton">Enviar Mensaje</button>
+            </form>
+            </div>
+    
+        </div>
+        <!-- /.row -->
+    
+        </div>
+</div>
+<div class="col-md-3 pl-0 pr-0">
+        {% include 'lateral.html' %}
+</div>
+</div>
+<footer class="py-5 bg-dark">
+    <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Ateb 2019</p>
+    </div>
+</footer>
+
+{% endblock %}
