@@ -25,7 +25,7 @@ SECRET_KEY = 'y7r4rx00d+v_^r2l=ik_g1ceb$)^6wvx$^%!km9)dbxp_@%p#m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','192.168.1.171']
 
 
 # Application definition
@@ -83,11 +83,11 @@ DATABASES = {
     #} 
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'atebweb',
-        'USER': 'atebwebuser',
-        'PASSWORD': '153759456852',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'AtebWeb',
+        'USER': 'atebwebadmin',
+        'PASSWORD': 'tama153759',
+        'HOST': '160.153.57.33',
+        'PORT': '3306',
     }
 
     
