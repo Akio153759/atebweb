@@ -83,7 +83,7 @@
                     </div>
                     <div id="success"></div>
                     <!-- For success/fail messages -->
-                    <button onclick="EnviarFormulario();" type="submit" class="btn btn-primary" id="sendMessageButton">Enviar Mensaje</button>
+                    <button onclick="EnviarFormulario();" type="button" class="btn btn-primary" id="sendMessageButton">Enviar Mensaje</button>
                 </form>
                 </div>
         
@@ -166,6 +166,19 @@ function EnviarFormulario(){
     var email = document.getElementById("email").value;
     var mensaje = document.getElementById("message").value;
 
+    if(nombre == "" || nombre == null){
+        alert("Debe colocar su nombre en el formulario")
+        return;
+    }
+    if(email == "" || email == null){
+        alert("Debe colocar su email en el formulario")
+        return;
+    }
+    if(mensaje == "" || mensaje == null){
+        alert("Debe colocar su su consulta en el campo mensaje")
+        return;
+    }
+
     $.ajax({
         type: 'post',
         url: "{% url 'enviar_datos_mail' %}",
@@ -180,7 +193,11 @@ function EnviarFormulario(){
         dataType: "json",
         statusCode: {
             200: function(){
-                alert("200 del ajax");
+                document.getElementById("name").value="";
+                document.getElementById("phone").value="";
+                document.getElementById("email").value="";
+                document.getElementById("message").value="";
+                alert("Gracias por enviar su consulta!!. Responderemos a la brevedad");
             }
         },
         success: function(response) {

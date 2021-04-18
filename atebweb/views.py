@@ -62,13 +62,15 @@ def enviar_datos_mail (request):
         mensaje = request.POST['mensaje']
 
         msg = MIMEMultipart()
-        remitente = 'cursopythonpruebas12@gmail.com'
-        password = 'pruebapython'
+        remitente = 'consultasatebweb@gmail.com'
+        password = 'ateb2003!'
         msg['From'] = 'cursopythonpruebas12@gmail.com'
-        msg['To'] = email
+        msg['To'] = 'ateb2003@hotmail.com'
         msg['Subject'] = 'Ateb web - Consulta de {}'.format(nombre) 
-        msg.attach(MIMEText(mensaje))
+        msg.attach(MIMEText('Datos de contacto:\n\nNombre: {}\nTeléfono: {}\nCorreo Electrónico: {}\n\nMensaje:\n{}'.format(nombre,telefono,email,mensaje)))
+        
         try:
+            
             server = smtplib.SMTP('smtp.gmail.com:587')
             server.starttls()
             server.login(remitente, password)
@@ -76,6 +78,7 @@ def enviar_datos_mail (request):
             server.quit()
         except Exception as e:
             print(e)
+        
         return HttpResponse(status=200)
         
     except Exception as e:

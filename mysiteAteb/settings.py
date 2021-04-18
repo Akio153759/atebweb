@@ -77,18 +77,18 @@ WSGI_APPLICATION = 'mysiteAteb.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #} 
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'AtebWeb',
-        'USER': 'atebwebadmin',
-        'PASSWORD': 'tama153759',
-        'HOST': '160.153.57.33',
-        'PORT': '3306',
-    }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    } 
+    #'default': {
+    #    'ENGINE': 'django.db.backends.mysql',
+    #    'NAME': 'AtebWeb',
+    #    'USER': 'atebwebadmin',
+    #    'PASSWORD': 'tama153759',
+    #    'HOST': '160.153.57.33',
+    #    'PORT': '3306',
+    #}
 
     
 }
